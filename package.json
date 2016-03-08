@@ -1,6 +1,6 @@
 {
   "name": "watchmen-ping-icmp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "ICMP ping service for watchmen",
   "main": "index.js",
   "scripts": {
@@ -17,9 +17,9 @@
   "author": "Adriano Cola",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/iloire/watchmen-ping-icmp/issues"
+    "url": "https://github.com/adrianocola/watchmen-ping-icmp/issues"
   },
-  "homepage": "https://github.com/iloire/watchmen-ping-icmp#readme",
+  "homepage": "https://github.com/adrianocola/watchmen-ping-icmp#readme",
   "dependencies": {
     "net-ping": "^1.2.0",
     "validator": "^5.1.0"
