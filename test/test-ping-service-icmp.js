@@ -11,7 +11,7 @@ describe('ping service icmp', function () {
     });
   });
 
-  it('should fail if can\'t  ping', function (done) {
+  it('should fail if can\'t ping', function (done) {
     var pingService = require('../index');
     var instance = new pingService();
     instance.ping({url: '0.0.0.0'}, function (error,body,response,time) {
@@ -46,24 +46,5 @@ describe('ping service icmp', function () {
       done();
     });
   });
-
-  //it('should fail if statusCode does not match', function (done) {
-  //  service.pingServiceOptions['http-head'].statusCode.value = 200;
-  //  var pingService = loadHttpHeadServiceWithMockedResponse(201);
-  //  pingService.ping(service, function (error) {
-  //    assert.ok(error.indexOf('Invalid status code') === 0);
-  //    done();
-  //  });
-  //});
-  //
-  //it('should handle invalid configuration statusCode', function (done) {
-  //  service.pingServiceOptions['http-head'].statusCode.value = 'notanumber';
-  //  var pingService = loadHttpHeadServiceWithMockedResponse(200);
-  //  pingService.ping(service, function (error) {
-  //    assert.ok(error.indexOf('Invalid status code') === 0);
-  //    assert.ok(error.indexOf('Expected: NaN') > -1);
-  //    done();
-  //  });
-  //});
 
 });

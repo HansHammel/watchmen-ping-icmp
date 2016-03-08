@@ -1,4 +1,4 @@
-const ping = require ('net-ping');
+const ping = require('./ping');
 const validator = require('validator');
 const dns = require('dns');
 
@@ -22,21 +22,17 @@ PingService.prototype.ping = function (service, callback) {
   //remove protocol (ie: http://) from address
   var url = service.url.replace(/.*?:\/\//g, "");
 
-  resolve(url, function(err,addresses){
+  resolve(url, function(err,ip){
 
     if (err){
       return callback(err.toString(), url, "dns error", 0);
     }
 
-    var session = ping.createSession();
-
-    var startTime = Date.now();
-
-    session.pingHost(addresses, function (err, target) {
-      if (err){
-        return callback(err.toString(), target, "icmp error", Date.now() - startTime);
+    ping.probe(ip,function(err,result,data,time){
+      if (err || !data){
+        return callback(err.toString(), ip, "icmp error", time);
       } else{
-        callback(null, target, "icmp alive", Date.now() - startTime);
+        callback(null, ip, "icmp alive", time);
       }
     });
 
