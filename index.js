@@ -1,6 +1,7 @@
 const ping = require ('net-ping');
 const validator = require('validator');
 const dns = require('dns');
+var session = ping.createSession();
 
 function PingService() {
 }
@@ -27,8 +28,6 @@ PingService.prototype.ping = function (service, callback) {
     if (err){
       return callback(err.toString(), url, "dns error", 0);
     }
-
-    var session = ping.createSession();
 
     var startTime = Date.now();
 
